@@ -1,15 +1,23 @@
 import { AuthService } from './../services/auth.service';
+import { Routing } from "../core/routing.service";
 
 export class SignInComponent {
 	constructor() {
 		this._autService = new AuthService();
+		this._routing = new Routing();
+	}
+
+	async beforeRender() {
+		if (this._autService.token) {
+			this._routing.navigate(`/user/${ this._autService.userId }`);
+		}
 	}
 
 	render() {
 		return `
 			<div class="container">
 				<div class="auth-wrap row py-5">
-					<div class="auth-form col col-6 mx-auto my-auto">
+					<div class="auth-form col col-12 col-md-6 mx-auto my-auto">
 						<h3>Login to Social.</h3>
 						<p class="text-secondary">Enter your e-mail address & password to login to your Social account.</p>
 						<form name="loginForm" novalidate>
@@ -23,7 +31,7 @@ export class SignInComponent {
 						</form>
 					</div>
 					<!-- /.auth-form -->
-					<div class="auth-bg col col-6"></div>
+					<div class="auth-bg col col-12 col-md-6"></div>
 					<!-- /.auth-bg -->
 				</div>
 				<!-- /.auth-wrap -->
@@ -42,7 +50,7 @@ export class SignInComponent {
 
 			this._autService.login(email, password)
 				.then((response) => {
-					console.log(response);
+					this._routing.navigate(`/users/${ response.id }`, { myData: 'My data' });
 				})
 				.catch((err) => {
 					console.log(err);

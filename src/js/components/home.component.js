@@ -3,6 +3,8 @@ export class HomeComponent {
 
 	}
 
+	async beforeRender() {}
+
 	render() {
 		return `<div>Home</div>`;
 	}

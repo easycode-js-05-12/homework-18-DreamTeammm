@@ -20,4 +20,19 @@ export class Http {
 				.catch((err) => reject(err));
 		});
 	}
+
+	/**
+	 * @description The function sends data to the server
+	 * @param url - uniform resource locator
+	 * @param options - handler
+	 * @return {Promise<any>}
+	 */
+	get(url, options) {
+		return new Promise((resolve, reject) => {
+			fetch(url)
+				.then((response) => response.json())
+				.then((data) => resolve(data))
+				.catch((err) => reject(err));
+		});
+	}
 }

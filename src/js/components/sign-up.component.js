@@ -5,11 +5,13 @@ export class SignUpComponent {
 		this._autService = new AuthService();
 	}
 
+	async beforeRender() {}
+
 	render() {
 		return `
 			<div class="container">
 				<div class="auth-wrap row py-5">
-					<div class="auth-form col col-6 mx-auto my-auto">
+					<div class="auth-form col col-12 col-md-6 mx-auto my-auto">
 						<h3>Sign Up to Social.</h3>
 						<p class="text-secondary">It\`s awesome here... Enter.</p>
 						<form name="signUpForm" class="needs-validation" novalidate>
@@ -82,7 +84,7 @@ export class SignUpComponent {
 						</form>
 					</div>
 					<!-- /.auth-form -->
-					<div class="auth-bg col col-6"></div>
+					<div class="auth-bg col col-12 col-md-6"></div>
 					<!-- /.auth-bg -->
 				</div>
 				<!-- /.auth-wrap -->
@@ -112,6 +114,7 @@ export class SignUpComponent {
 			this._autService.registration(userData)
 				.then((response) => {
 					console.log(response);
+					e.target.reset();
 				})
 				.catch((err) => {
 					console.log(err);
