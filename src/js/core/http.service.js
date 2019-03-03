@@ -29,7 +29,7 @@ export class Http {
 	 */
 	get(url, options) {
 		return new Promise((resolve, reject) => {
-			fetch(url)
+			fetch(url, options)
 				.then((response) => response.json())
 				.then((data) => resolve(data))
 				.catch((err) => reject(err));

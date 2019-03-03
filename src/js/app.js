@@ -4,12 +4,14 @@ import { NotFoundComponent } from './components/notfound.component';
 import { SignUpComponent } from "./components/sign-up.component";
 import { UserComponent } from "./components/user.component";
 import { ActiveRoute } from "./core/active.route.service";
+import { NewsComponent } from "./components/news.component";
 
 const routes = {
 	'/': new HomeComponent(),
 	'/sign-in': new SignInComponent(),
 	'/sign-up': new SignUpComponent(),
 	'/users/:id': new UserComponent(),
+	'/news': new NewsComponent(),
 	'**': new NotFoundComponent()
 };
 
