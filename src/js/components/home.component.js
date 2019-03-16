@@ -20,7 +20,7 @@ export class HomeComponent {
 			<!-- Component html -->
 			<section class="inner d-flex flex-column" style="background-image: url('${ this._homeData.homeBackground }')">
 				<div class="container flex-grow-1 d-flex flex-column px-0">
-					<div class="row flex-grow-1">
+					<div class="row no-gutters flex-grow-1">
 						<div class="col col-12 col-md-6 col-xs-4">
 							<div class="text-box d-flex flex-column justify-content-center p-2 p-md-5 h-100 text-white">
 								<div class="logo-holder mb-2 mb-md-4">
